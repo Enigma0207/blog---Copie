@@ -103,11 +103,18 @@
           </li>
           {% if app.user %}
           <li class="nav-item">
-            <a class="nav-link" href="{{ path('app_user') }}">Déconnexion</a>
+            <a class="nav-link" href="{{path('app_logout')}}">Déconnexion</a>
+            {# <a class="nav-link" href="{{path('app_...')}}">Déconnexion</a> #}
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{path('app_account')}}">Profil</a>
           </li>
           {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+            <a class="nav-link" href="{{path('app_login')}}">Connexion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{path('app_user')}}">Inscription</a>
           </li>
           {% endif %}
         </ul>

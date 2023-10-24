@@ -45,4 +45,25 @@ class ArticleRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+
+// / cette méthode, nous utilisons createQueryBuilder pour créer une requête qui sélectionne les articles dont l'utilisateur (user) correspond à l'ID de 
+// l'utilisateur fourni ($userId). La méthode getResult exécute la requête et renvoie les résultats.
+// Dans cette méthode, nous utilisons createQueryBuilder pour créer une requête qui sélectionne les articles dont l'utilisateur (user) correspond à l'ID de l'utilisateur fourni ($userId).
+//  La méthode getResult exécute la requête et renvoie les résultats.
+   
+     public function findArticlesByUser($userId)
+{
+    return $this->createQueryBuilder('a')
+        // ->innerJoin('a.auteur = :userId')
+        // ->where('u.username = :username')
+        //  ->setParameter('username', $username)
+        //  ->getQuery()
+        // ->getResult();
+        ->where('a.auteur = :userId')
+        ->setParameter('userId', $userId)
+        ->getQuery()
+        ->getResult();
+}
+
 }
